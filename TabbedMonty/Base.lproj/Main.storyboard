@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -72,9 +73,39 @@
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDs-xV-Q8W">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BwQ-5Y-QSC">
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="resetTapped:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="LHl-U9-Nz7"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mSZ-tB-Yxj">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="mSZ-tB-Yxj" firstAttribute="top" secondItem="RDs-xV-Q8W" secondAttribute="bottom" constant="17" id="286-Td-SrA"/>
+                            <constraint firstItem="RDs-xV-Q8W" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="33" id="Dkw-8C-HUb"/>
+                            <constraint firstItem="BwQ-5Y-QSC" firstAttribute="top" secondItem="mSZ-tB-Yxj" secondAttribute="bottom" constant="10" id="HY4-68-j0h"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="BwQ-5Y-QSC" secondAttribute="bottom" constant="10" id="KHS-Iz-RPk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mSZ-tB-Yxj" secondAttribute="trailing" id="Nks-Wp-iOs"/>
+                            <constraint firstItem="RDs-xV-Q8W" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="hVD-lm-5Mm"/>
+                            <constraint firstItem="mSZ-tB-Yxj" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="hqf-op-tjW"/>
+                            <constraint firstItem="BwQ-5Y-QSC" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="wew-Ia-hd0"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="3 Card" image="second" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="buttonContainer" destination="mSZ-tB-Yxj" id="Zbd-yo-l6r"/>
+                        <outlet property="gameLabel" destination="RDs-xV-Q8W" id="8IT-sb-il2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
