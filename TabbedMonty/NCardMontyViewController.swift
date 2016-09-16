@@ -19,14 +19,14 @@ class NCardMontyViewController: UIViewController {
     let resetTitle = "Reset"
     
     required init?(coder aDecoder: NSCoder) {
-        self.howManyCards = 21
+        self.howManyCards = 19
         self.brain = MontyBrain(numCards: self.howManyCards)
         super.init(coder: aDecoder)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpGameButtons()
+        setUpGameButtons(v: self.view, totalButtons: self.howManyCards, buttonsPerRow: 6)
     }
     
     func resetButtonColors() {
@@ -89,12 +89,13 @@ class NCardMontyViewController: UIViewController {
         gameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
-    func setUpGameButtons() {
+    func setUpGameButtons(v: UIView, totalButtons: Int, buttonsPerRow : Int) {
         for i in 1...howManyCards {
-            let y = ((i - 1) / 3) + 1
-            let x = ((i - 1) % 3) + 1
+            let y = ((i - 1) / buttonsPerRow)
+            let x = ((i - 1) % buttonsPerRow)
+            let side : CGFloat = v.bounds.size.width / CGFloat(buttonsPerRow)
             
-            let rect = CGRect(origin: CGPoint(x: (Double(50 * x) + 50), y: (Double(y * 50) + 50) + 50), size: CGSize(width: 40, height: 40))
+            let rect = CGRect(origin: CGPoint(x: side * CGFloat(x), y: (CGFloat(y) * side + 100)), size: CGSize(width: side, height: side))
             let button = UIButton(frame: rect)
             button.tag = i
             button.backgroundColor = UIColor.blue
@@ -106,4 +107,5 @@ class NCardMontyViewController: UIViewController {
         setUpGameLabel()
     }
 }
+
 
